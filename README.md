@@ -6,7 +6,7 @@
 
 ## 🧱 ERD
 
-<img width="1217" alt="전시TF_ERD" src="https://github.com/user-attachments/assets/5b0fbd13-1447-483f-b9ca-5cb6b12b90b3">
+<img width="1210" alt="전시_ERD" src="https://github.com/user-attachments/assets/31ea4828-e296-431f-b599-0c83cdb6b1a3">
 
 
 ## 📄 API Documentation
