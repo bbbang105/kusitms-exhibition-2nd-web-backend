@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-slim as build
 
 WORKDIR /app
 
-COPY ./build/libs/exhibition-0.0.1-SNAPSHOT.jar app.jar
+COPY ./build/libs/exihibition-0.0.1-SNAPSHOT.jar app.jar
 
 # 최종 이미지: 경량화된 Alpine 이미지를 사용하여 빌드된 파일을 실행
 FROM openjdk:17-jdk-alpine as final
