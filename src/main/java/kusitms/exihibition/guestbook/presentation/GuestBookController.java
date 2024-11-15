@@ -13,8 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/guestbooks")
@@ -49,11 +47,11 @@ public class GuestBookController {
      * @return 방명록 데이터 목록 (1페이지당 10개)
      */
     @GetMapping("/{page}")
-    public ResponseEntity<ApiResponse<List<GetGuestBooksResponse>>> getGuestBooks(
+    public ResponseEntity<ApiResponse<GetGuestBooksResponse>> getGuestBooks(
             @PathVariable("page") @Min(1) int page
     ) {
 
-        List<GetGuestBooksResponse> guestBooks = guestBookService.getGuestBooks(PageRequest.of(page - 1, 10));
-        return ApiResponse.onSuccess(GuestBookSuccessStatus._GET_GUESTBOOKS_BY_PAGE, guestBooks);
+        GetGuestBooksResponse response = guestBookService.getGuestBooks(PageRequest.of(page - 1, 10));
+        return ApiResponse.onSuccess(GuestBookSuccessStatus._GET_GUESTBOOKS_BY_PAGE, response);
     }
 }
