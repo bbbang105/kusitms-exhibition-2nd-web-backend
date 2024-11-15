@@ -28,12 +28,12 @@ public class MemberController {
      * 이 API는 멤버의 유형별 데이터를 조회합니다.
      * type이 null이거나 제공되지 않을 경우 전체 데이터를 반환합니다.
      *
-     * @param type 멤버 유형 (예: TF, PARTICIPANTS, OTHER)
+     * @param type 멤버 유형 (예: all, tf, participants, other)
      * @return 멤버 리스트 및 성공 메시지
      */
     @GetMapping("/{type}")
     public ResponseEntity<ApiResponse<List<GetMembersByTypeResponse>>> getMembersByType(
-            @PathVariable(value = "type", required = false) String type
+            @PathVariable(value = "type") String type
     ) {
 
         List<GetMembersByTypeResponse> response = memberService.getMembersByType(type);
