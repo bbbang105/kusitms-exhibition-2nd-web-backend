@@ -1,6 +1,7 @@
 package kusitms.exihibition.comment.entity;
 
 import jakarta.persistence.*;
+import kusitms.exihibition.global.dao.BaseEntity;
 import kusitms.exihibition.product.domain.entity.Product;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -11,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Table(name = "comments")
-public class Comment {
+public class Comment extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
