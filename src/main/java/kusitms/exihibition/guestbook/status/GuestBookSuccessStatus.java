@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 @AllArgsConstructor
 public enum GuestBookSuccessStatus implements BaseCode {
     _REGISTER_GUESTBOOK(HttpStatus.CREATED, "201", "방명록 등록에 성공했습니다."),
+    _GET_GUESTBOOKS_BY_PAGE(HttpStatus.OK, "200", "페이지 별 방명록 조회에 성공했습니다."),
     ;
 
     private final HttpStatus httpStatus;
