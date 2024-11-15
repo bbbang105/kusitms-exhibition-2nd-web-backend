@@ -30,16 +30,16 @@ public class Member extends BaseEntity {
     @Column(name = "img_url", nullable = false, length = 100)
     private String imgUrl;
 
-    @Column(name = "instagram_url", length = 100)
+    @Column(name = "instagram_url", length = 200)
     private String instagramUrl;
 
-    @Column(name = "linkedin_url", length = 100)
+    @Column(name = "linkedin_url", length = 200)
     private String linkedinUrl;
 
-    @Column(name = "github_url", length = 100)
+    @Column(name = "github_url", length = 200)
     private String githubUrl;
 
-    @Column(name = "behance_url", length = 100)
+    @Column(name = "behance_url", length = 200)
     private String behanceUrl;
 
     @Enumerated(EnumType.STRING)
