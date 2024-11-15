@@ -3,14 +3,31 @@ package kusitms.exihibition.guestbook.dto.response;
 import kusitms.exihibition.global.util.DateUtil;
 import kusitms.exihibition.guestbook.domain.entity.GuestBook;
 
+import java.util.List;
+
 public record GetGuestBooksResponse(
-        String content,
-        String createdDate
-) {
-    public static GetGuestBooksResponse from(GuestBook guestBook) {
+        int totalGuestBookCount,
+        int totalPageCount,
+        List<GuestBookResponse> guestBooks
+        ){
+
+    public static GetGuestBooksResponse of(int totalGuestBookCount, int totalPageCount, List<GuestBookResponse> guestBooks) {
         return new GetGuestBooksResponse(
-                guestBook.getContent(),
-                DateUtil.formatDateTime(guestBook.getCreatedDate())
+                totalGuestBookCount,
+                totalPageCount,
+                guestBooks
         );
+    }
+
+    public record GuestBookResponse(
+            String content,
+            String createdDate
+    ) {
+        public static GuestBookResponse from(GuestBook guestBook) {
+            return new GuestBookResponse(
+                    guestBook.getContent(),
+                    DateUtil.formatDateTime(guestBook.getCreatedDate())
+            );
+        }
     }
 }
