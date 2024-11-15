@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -30,11 +29,16 @@ public class GuestBookService {
 
     // 방명록 조회 메서드 (1페이지당 10개)
     @Transactional(readOnly = true)
-    public List<GetGuestBooksResponse> getGuestBooks(Pageable pageable) {
+    public GetGuestBooksResponse getGuestBooks(Pageable pageable) {
         Page<GuestBook> guestBooksPage = guestBookRepository.findAllByOrderByCreatedDateDesc(pageable);
 
-        return guestBooksPage.stream()
-                .map(GetGuestBooksResponse::from)
-                .collect(Collectors.toList());
+        List<GetGuestBooksResponse.GuestBookResponse> guestBooks = guestBooksPage.stream()
+                .map(GetGuestBooksResponse.GuestBookResponse::from)
+                .toList();
+
+        int totalGuestBookCount = (int) guestBooksPage.getTotalElements();
+        int totalPageCount = guestBooksPage.getTotalPages();
+
+        return GetGuestBooksResponse.of(totalGuestBookCount, totalPageCount, guestBooks);
     }
 }
