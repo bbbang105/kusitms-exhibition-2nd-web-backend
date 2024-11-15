@@ -1,6 +1,7 @@
 package kusitms.exihibition.product.domain.entity;
 
 import jakarta.persistence.*;
+import kusitms.exihibition.global.dao.BaseEntity;
 import kusitms.exihibition.team.domain.entity.Team;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -10,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Table(name = "products")
-public class Product {
+public class Product extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

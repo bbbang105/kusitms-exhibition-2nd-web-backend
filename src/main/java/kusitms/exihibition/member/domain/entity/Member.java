@@ -1,6 +1,7 @@
 package kusitms.exihibition.member.domain.entity;
 
 import jakarta.persistence.*;
+import kusitms.exihibition.global.dao.BaseEntity;
 import kusitms.exihibition.member.domain.enums.MemberType;
 import kusitms.exihibition.team.domain.entity.Team;
 import lombok.AccessLevel;
@@ -13,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Table(name = "members")
-public class Member {
+public class Member extends BaseEntity {
 
     @Id
     @Column(name = "members_id")
