@@ -82,12 +82,14 @@ public class GuestBookControllerTest extends ControllerTestConfig {
     @DisplayName("방명록을 페이지 별로 조회한다.")
     public void getGuestBooksTest() throws Exception {
         // given
-        List<GetGuestBooksResponse> responses = List.of(
-                new GetGuestBooksResponse("방명록 내용1", "2024년 06월 08일 10:10"),
-                new GetGuestBooksResponse("방명록 내용2", "2024년 06월 07일 15:30")
+        List<GetGuestBooksResponse.GuestBookResponse> guestBookResponses = List.of(
+                new GetGuestBooksResponse.GuestBookResponse("방명록 내용1", "2024년 06월 08일 10:10"),
+                new GetGuestBooksResponse.GuestBookResponse("방명록 내용2", "2024년 06월 07일 15:30")
         );
 
-        Mockito.when(guestBookService.getGuestBooks(any(PageRequest.class))).thenReturn(responses);
+        GetGuestBooksResponse response = GetGuestBooksResponse.of(25, 3, guestBookResponses);
+
+        Mockito.when(guestBookService.getGuestBooks(any(PageRequest.class))).thenReturn(response);
 
         // when
         ResultActions resultActions = mockMvc.perform(
@@ -100,8 +102,12 @@ public class GuestBookControllerTest extends ControllerTestConfig {
                 .andExpect(jsonPath("$.isSuccess").value(true))
                 .andExpect(jsonPath("$.code").value("200"))
                 .andExpect(jsonPath("$.message").value("페이지 별 방명록 조회에 성공했습니다."))
-                .andExpect(jsonPath("$.payload[0].content").value("방명록 내용1"))
-                .andExpect(jsonPath("$.payload[0].createdDate").value("2024년 06월 08일 10:10"))
+                .andExpect(jsonPath("$.payload.totalGuestBookCount").value(25))
+                .andExpect(jsonPath("$.payload.totalPageCount").value(3))
+                .andExpect(jsonPath("$.payload.guestBooks[0].content").value("방명록 내용1"))
+                .andExpect(jsonPath("$.payload.guestBooks[0].createdDate").value("2024년 06월 08일 10:10"))
+                .andExpect(jsonPath("$.payload.guestBooks[1].content").value("방명록 내용2"))
+                .andExpect(jsonPath("$.payload.guestBooks[1].createdDate").value("2024년 06월 07일 15:30"))
                 .andDo(MockMvcRestDocumentationWrapper.document("guestbook/list",
                         preprocessRequest(prettyPrint()),
                         preprocessResponse(prettyPrint()),
@@ -116,8 +122,10 @@ public class GuestBookControllerTest extends ControllerTestConfig {
                                                 fieldWithPath("isSuccess").description("성공 여부"),
                                                 fieldWithPath("code").description("응답 코드"),
                                                 fieldWithPath("message").description("응답 메시지"),
-                                                fieldWithPath("payload[].content").description("방명록 내용"),
-                                                fieldWithPath("payload[].createdDate").description("방명록 작성 날짜")
+                                                fieldWithPath("payload.totalGuestBookCount").description("총 방명록 개수"),
+                                                fieldWithPath("payload.totalPageCount").description("총 페이지 수"),
+                                                fieldWithPath("payload.guestBooks[].content").description("방명록 내용"),
+                                                fieldWithPath("payload.guestBooks[].createdDate").description("방명록 작성 날짜")
                                         )
                                         .responseSchema(Schema.schema("GetGuestBooksResponse"))
                                         .build()
