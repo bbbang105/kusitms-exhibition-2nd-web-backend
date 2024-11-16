@@ -3,6 +3,7 @@ package kusitms.exihibition.team.domain.entity;
 import jakarta.persistence.*;
 import kusitms.exihibition.global.dao.BaseEntity;
 import kusitms.exihibition.member.domain.entity.Member;
+import kusitms.exihibition.product.domain.entity.Product;
 import kusitms.exihibition.team.domain.enums.TeamType;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -39,4 +40,7 @@ public class Team extends BaseEntity {
 
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Member> members;
+
+    @OneToOne(mappedBy = "team", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Product product;
 }
