@@ -34,6 +34,9 @@ public class Product extends BaseEntity {
     @Column(name = "name", nullable = false, length = 50)
     private String name;
 
+    @Column(name = "category", nullable = false, length = 50)
+    private String category;
+
     @Column(name = "introduction", length = 50)
     private String introduction;
 

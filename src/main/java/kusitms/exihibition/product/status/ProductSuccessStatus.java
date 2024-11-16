@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 @AllArgsConstructor
 public enum ProductSuccessStatus implements BaseCode {
     _GET_PRODUCTS_BY_TYPE(HttpStatus.OK, "200", "유형 별 프로덕트 조회에 성공했습니다."),
+    _GET_PRODUCT_DETAILS(HttpStatus.OK, "200", "프로덕트 상세 조회에 성공했습니다."),
     ;
 
     private final HttpStatus httpStatus;
