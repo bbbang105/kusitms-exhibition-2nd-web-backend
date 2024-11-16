@@ -8,6 +8,8 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
@@ -18,10 +20,6 @@ public class Team extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "teams_id")
     private Long id;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "members_id", nullable = false)
-    private Member member;
 
     @Column(name = "name", nullable = false, length = 30)
     private String name;
@@ -36,6 +34,9 @@ public class Team extends BaseEntity {
     @Column(name = "generation", length = 30)
     private String generation;
 
-    @Column(name = "description", length = 200)
+    @Column(name = "description", length = 500)
     private String description;
+
+    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Member> members;
 }
