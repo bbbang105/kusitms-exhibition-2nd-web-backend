@@ -3,7 +3,6 @@ package kusitms.exihibition.member;
 import com.epages.restdocs.apispec.MockMvcRestDocumentationWrapper;
 import com.epages.restdocs.apispec.ResourceSnippetParameters;
 import com.epages.restdocs.apispec.Schema;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import kusitms.exihibition.configuration.ControllerTestConfig;
 import kusitms.exihibition.member.application.MemberService;
 import kusitms.exihibition.member.dto.response.GetMembersByTypeResponse;
