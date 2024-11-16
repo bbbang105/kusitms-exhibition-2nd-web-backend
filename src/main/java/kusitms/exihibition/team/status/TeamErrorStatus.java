@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 @RequiredArgsConstructor
 public enum TeamErrorStatus implements BaseErrorCode {
     _NOT_FOUND_TEAM(HttpStatus.NOT_FOUND, "TEAM-001", "팀을 찾을 수 없습니다."),
+    _INVALID_TEAM_TYPE(HttpStatus.BAD_REQUEST, "TEAM-002", "올바른 팀 유형이 아닙니다."),
     ;
     private final HttpStatus httpStatus;
     private final String code;
