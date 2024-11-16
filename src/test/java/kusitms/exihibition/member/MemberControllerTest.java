@@ -64,7 +64,7 @@ public class MemberControllerTest extends ControllerTestConfig {
                         preprocessResponse(prettyPrint()),
                         resource(
                                 ResourceSnippetParameters.builder()
-                                        .tag("Member API")
+                                        .tag("People")
                                         .description("유형별로 멤버를 조회한다.")
                                         .pathParameters(
                                                 parameterWithName("type").description("멤버 유형 [예시 : all, participants, tf, other]")

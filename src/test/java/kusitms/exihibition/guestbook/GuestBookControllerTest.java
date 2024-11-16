@@ -62,7 +62,7 @@ public class GuestBookControllerTest extends ControllerTestConfig {
                         preprocessResponse(prettyPrint()),
                         resource(
                                 ResourceSnippetParameters.builder()
-                                        .tag("GuestBook API")
+                                        .tag("GuestBook")
                                         .description("방명록을 등록한다.")
                                         .requestFields(
                                                 fieldWithPath("content").description("큐시즘 전시회 화이팅!")
@@ -113,7 +113,7 @@ public class GuestBookControllerTest extends ControllerTestConfig {
                         preprocessResponse(prettyPrint()),
                         resource(
                                 ResourceSnippetParameters.builder()
-                                        .tag("GuestBook API")
+                                        .tag("GuestBook")
                                         .description("방명록을 페이지 별로 조회한다.")
                                         .pathParameters(
                                                 parameterWithName("page").description("조회할 페이지 번호 [예시 : 1 (NUMBER Type, 최소 1이상)]")
