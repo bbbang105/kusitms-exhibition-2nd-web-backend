@@ -3,6 +3,7 @@ package kusitms.exihibition.product.presentation;
 import kusitms.exihibition.global.dto.ApiResponse;
 import kusitms.exihibition.product.application.ProductService;
 import kusitms.exihibition.product.dto.response.GetProductByTypeResponse;
+import kusitms.exihibition.product.dto.response.GetProductDetailsResponse;
 import kusitms.exihibition.product.status.ProductSuccessStatus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -37,5 +38,22 @@ public class ProductController {
 
         List<GetProductByTypeResponse> response = productService.getProductsByType(type);
         return ApiResponse.onSuccess(ProductSuccessStatus._GET_PRODUCTS_BY_TYPE, response);
+    }
+
+    /**
+     * 특정 프로덕트 상세 조회 API
+     *
+     * 이 API는 특정 프로덕트의 상세 정보를 조회합니다.
+     *
+     * @param productId 조회할 프로덕트의 ID
+     * @return 프로덕트 상세 정보 및 성공 메시지
+     */
+    @GetMapping("details/{product_id}")
+    public ResponseEntity<ApiResponse<GetProductDetailsResponse>> getProductDetails(
+            @PathVariable("product_id") Long productId
+    ) {
+
+        GetProductDetailsResponse response = productService.getProductDetails(productId);
+        return ApiResponse.onSuccess(ProductSuccessStatus._GET_PRODUCT_DETAILS, response);
     }
 }
