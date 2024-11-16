@@ -33,7 +33,7 @@ public class TeamControllerTest extends ControllerTestConfig {
     private TeamService teamService;
 
     @Test
-    @DisplayName("특정 팀 정보를 조회한다.")
+    @DisplayName("특정 프로덕트의 팀 정보와 멤버 목록을 조회한다.")
     public void getTeamInfosTest() throws Exception {
         // given
         List<GetTeamInfosResponse.MemberInfo> memberInfos = List.of(
@@ -72,9 +72,9 @@ public class TeamControllerTest extends ControllerTestConfig {
                         resource(
                                 ResourceSnippetParameters.builder()
                                         .tag("Archive")
-                                        .description("특정 서비스의 팀 정보와 멤버 목록을 조회한다.")
+                                        .description("특정 프로덕트의 팀 정보와 멤버 목록을 조회한다.")
                                         .pathParameters(
-                                                parameterWithName("product_id").description("조회할 서비스의 ID [예시 : 1 (NUMBER Type)]")
+                                                parameterWithName("product_id").description("조회에 사용할 프로덕트 ID [예시 : 1 (NUMBER Type)]")
                                         )
                                         .responseFields(
                                                 fieldWithPath("isSuccess").description("성공 여부"),
@@ -82,15 +82,15 @@ public class TeamControllerTest extends ControllerTestConfig {
                                                 fieldWithPath("message").description("응답 메시지"),
                                                 fieldWithPath("payload.teamName").description("팀 이름"),
                                                 fieldWithPath("payload.generation").description("팀 기수"),
-                                                fieldWithPath("payload.origin").description("팀 출신 지역"),
+                                                fieldWithPath("payload.origin").description("팀 결성 계기"),
                                                 fieldWithPath("payload.description").description("팀 설명"),
                                                 fieldWithPath("payload.memberInfos[].name").description("멤버 이름"),
                                                 fieldWithPath("payload.memberInfos[].imgUrl").description("멤버 이미지 URL"),
-                                                fieldWithPath("payload.memberInfos[].part").description("멤버 역할"),
-                                                fieldWithPath("payload.memberInfos[].instagramUrl").description("Instagram URL").optional(),
-                                                fieldWithPath("payload.memberInfos[].linkedinUrl").description("LinkedIn URL").optional(),
-                                                fieldWithPath("payload.memberInfos[].githubUrl").description("GitHub URL").optional(),
-                                                fieldWithPath("payload.memberInfos[].behanceUrl").description("Behance URL").optional()
+                                                fieldWithPath("payload.memberInfos[].part").description("멤버 파트"),
+                                                fieldWithPath("payload.memberInfos[].instagramUrl").description("인스타그램 URL").optional(),
+                                                fieldWithPath("payload.memberInfos[].linkedinUrl").description("링크드인 URL").optional(),
+                                                fieldWithPath("payload.memberInfos[].githubUrl").description("깃허브 URL").optional(),
+                                                fieldWithPath("payload.memberInfos[].behanceUrl").description("비핸스 URL").optional()
                                         )
                                         .responseSchema(Schema.schema("GetTeamInfosResponse"))
                                         .build()

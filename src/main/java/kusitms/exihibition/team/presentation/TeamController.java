@@ -25,7 +25,7 @@ public class TeamController {
      *
      * 이 API는 특정 팀의 정보를 포함하여 팀에 소속된 멤버들의 데이터를 반환합니다.
      *
-     * @param productId 조회할 팀이 제작한 서비스 ID
+     * @param productId 조회할 팀이 제작한 프로덕트 ID
      * @return 팀 정보 및 멤버 목록 응답
      */
     @GetMapping("/{product_id}")
