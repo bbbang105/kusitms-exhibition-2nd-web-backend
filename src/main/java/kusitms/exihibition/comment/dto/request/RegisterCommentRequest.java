@@ -2,7 +2,7 @@ package kusitms.exihibition.comment.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import kusitms.exihibition.comment.entity.Comment;
+import kusitms.exihibition.comment.domain.entity.Comment;
 import kusitms.exihibition.product.domain.entity.Product;
 
 public record RegisterCommentRequest(

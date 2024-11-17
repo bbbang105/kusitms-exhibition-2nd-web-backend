@@ -1,4 +1,4 @@
-package kusitms.exihibition.comment.entity;
+package kusitms.exihibition.comment.domain.entity;
 
 import jakarta.persistence.*;
 import kusitms.exihibition.global.dao.BaseEntity;
