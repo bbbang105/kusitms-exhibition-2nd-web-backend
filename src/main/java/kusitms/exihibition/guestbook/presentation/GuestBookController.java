@@ -22,11 +22,11 @@ public class GuestBookController {
     private final GuestBookService guestBookService;
 
     /**
-     * 방명록 작성 API
+     * 방명록 등록 API
      *
      * 이 API는 사용자가 작성한 방명록 내용을 저장합니다.
      *
-     * @param request 방명록 작성 요청 데이터 (내용 필수)
+     * @param request 방명록 등록 내용 (200자 제한)
      * @return 성공 여부 및 상태 메시지
      */
     @PostMapping
