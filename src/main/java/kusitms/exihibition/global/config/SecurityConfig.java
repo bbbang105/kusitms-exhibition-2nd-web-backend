@@ -20,15 +20,25 @@ import java.util.Collections;
 @EnableWebSecurity
 public class SecurityConfig {
 
+    private static final String[] SWAGGER_URLS = {
+            "/swagger-ui/**", "/v3/api-docs/**"
+    };
+
+    private static final String[] ALLOWED_ORIGINS = {
+            "http://localhost:3000",
+            "https://kusitms-exhibition.store",
+            "https://kusitms-exhibition-test.store",
+    };
+
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(Arrays.asList(
-                "http://localhost:3000"
-        ));
+        config.setAllowedOrigins(Arrays.asList(ALLOWED_ORIGINS));
         config.setAllowedMethods(Collections.singletonList("*"));
         config.setAllowedHeaders(Collections.singletonList("*"));
         config.setAllowCredentials(true);
+        config.setExposedHeaders(Arrays.asList("Authorization", "Set-Cookie"));
+        config.setMaxAge(3600L);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
@@ -41,9 +51,9 @@ public class SecurityConfig {
                 .httpBasic(HttpBasicConfigurer::disable)
                 .cors(corsConfigurer -> corsConfigurer.configurationSource(corsConfigurationSource()))
                 .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(authorize ->
-                        authorize
-                                .requestMatchers("/**").permitAll()
+                .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers(SWAGGER_URLS).permitAll()
+                        .requestMatchers("/**").permitAll()
                 );
 
         return httpSecurity.build();
