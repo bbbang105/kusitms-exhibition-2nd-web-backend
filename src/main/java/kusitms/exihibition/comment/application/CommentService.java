@@ -2,8 +2,8 @@ package kusitms.exihibition.comment.application;
 
 import kusitms.exihibition.comment.dto.request.RegisterCommentRequest;
 import kusitms.exihibition.comment.dto.response.GetCommentsResponse;
-import kusitms.exihibition.comment.entity.Comment;
-import kusitms.exihibition.comment.entity.repository.CommentRepository;
+import kusitms.exihibition.comment.domain.entity.Comment;
+import kusitms.exihibition.comment.domain.entity.repository.CommentRepository;
 import kusitms.exihibition.global.exception.CustomException;
 import kusitms.exihibition.product.domain.entity.Product;
 import kusitms.exihibition.product.domain.repository.ProductRepository;

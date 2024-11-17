@@ -1,6 +1,6 @@
 package kusitms.exihibition.comment.dto.response;
 
-import kusitms.exihibition.comment.entity.Comment;
+import kusitms.exihibition.comment.domain.entity.Comment;
 import kusitms.exihibition.global.util.DateUtil;
 
 import java.util.List;

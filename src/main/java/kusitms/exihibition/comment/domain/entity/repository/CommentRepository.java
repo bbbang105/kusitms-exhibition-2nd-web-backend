@@ -1,6 +1,6 @@
-package kusitms.exihibition.comment.entity.repository;
+package kusitms.exihibition.comment.domain.entity.repository;
 
-import kusitms.exihibition.comment.entity.Comment;
+import kusitms.exihibition.comment.domain.entity.Comment;
 import kusitms.exihibition.product.domain.entity.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
