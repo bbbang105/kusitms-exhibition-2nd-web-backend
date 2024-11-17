@@ -65,7 +65,7 @@ public class GuestBookControllerTest extends ControllerTestConfig {
                                         .tag("GuestBook")
                                         .description("방명록을 등록한다.")
                                         .requestFields(
-                                                fieldWithPath("content").description("큐시즘 전시회 화이팅!")
+                                                fieldWithPath("content").description("방명록 내용 (최대 200자)")
                                         )
                                         .responseFields(
                                                 fieldWithPath("isSuccess").description("성공 여부"),
