@@ -51,11 +51,4 @@ public class Product extends BaseEntity {
 
     @Column(name = "solution", length = 200)
     private String solution;
-
-    @Column(name = "comments_count")
-    private int commentsCount;
-
-    public void increaseCommentsCount() {
-        commentsCount++;
-    }
 }
