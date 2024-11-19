@@ -28,6 +28,8 @@ public class SecurityConfig {
             "http://localhost:3000",
             "https://kusitms-exhibition.store",
             "https://kusitms-exhibition-test.store",
+            "https://chemical-synergy-with-kusitms.com",
+            "https://www.chemical-synergy-with-kusitms.com"
     };
 
     @Bean
