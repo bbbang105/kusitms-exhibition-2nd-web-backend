@@ -59,7 +59,6 @@ public class MemberService {
                 })
                 .toList();
 
-        System.out.println("총 " + distinctMembers.size() + "명");
         // 파트 기준으로 정렬
         return distinctMembers.stream()
                 .sorted(Comparator.comparingInt(member -> {
