@@ -1,6 +1,7 @@
 package kusitms.exihibition.product.domain.entity;
 
 import jakarta.persistence.*;
+import kusitms.exihibition.global.dao.BaseEntity;
 import kusitms.exihibition.team.domain.entity.Team;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -10,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Table(name = "products")
-public class Product {
+public class Product extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,6 +34,9 @@ public class Product {
     @Column(name = "name", nullable = false, length = 50)
     private String name;
 
+    @Column(name = "category", nullable = false, length = 50)
+    private String category;
+
     @Column(name = "introduction", length = 50)
     private String introduction;
 
@@ -47,11 +51,4 @@ public class Product {
 
     @Column(name = "solution", length = 200)
     private String solution;
-
-    @Column(name = "comments_count")
-    private int commentsCount;
-
-    public void increaseCommentsCount() {
-        commentsCount++;
-    }
 }

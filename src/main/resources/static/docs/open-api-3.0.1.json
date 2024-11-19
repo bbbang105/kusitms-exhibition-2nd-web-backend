@@ -1,0 +1,65 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "KUSITMS Exhibition 2 API Documentation",
+    "description" : "Spring REST Docs with Swagger UI.",
+    "version" : "0.0.1"
+  },
+  "servers" : [ {
+    "url" : "https://kusitms-exhibition.store"
+  } ],
+  "tags" : [ ],
+  "paths" : {
+    "/api/v1/test/health-check" : {
+      "get" : {
+        "tags" : [ "Test API" ],
+        "summary" : "헬스체크 API를 호출한다.",
+        "description" : "헬스체크 API를 호출한다.",
+        "operationId" : "test/health-check",
+        "responses" : {
+          "200" : {
+            "description" : "200",
+            "content" : {
+              "application/json;charset=UTF-8" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/api-v1-test-health-check-257432690"
+                },
+                "examples" : {
+                  "test/health-check" : {
+                    "value" : "{\n  \"isSuccess\" : true,\n  \"code\" : \"200\",\n  \"message\" : \"성공입니다.\",\n  \"payload\" : \"Good!\"\n}"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "api-v1-test-health-check-257432690" : {
+        "required" : [ "code", "isSuccess", "message", "payload" ],
+        "type" : "object",
+        "properties" : {
+          "code" : {
+            "type" : "string",
+            "description" : "응답 코드"
+          },
+          "payload" : {
+            "type" : "string",
+            "description" : "Good!"
+          },
+          "message" : {
+            "type" : "string",
+            "description" : "성공입니다."
+          },
+          "isSuccess" : {
+            "type" : "boolean",
+            "description" : "성공 여부"
+          }
+        }
+      }
+    }
+  }
+}
