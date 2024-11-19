@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,6 +22,11 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
 
+    private static final List<String> PART_ORDER = List.of(
+            "PM / Planner", "PM / FE Developer", "PM / Designer", "Planner", "Designer", "FE Developer", "BE Developer"
+    );
+
+    // 유형 별 멤버 조회 메서드
     @Transactional(readOnly = true)
     public List<GetMembersByTypeResponse> getMembersByType(String type) {
         List<Member> members = switch (type) {
@@ -31,8 +37,35 @@ public class MemberService {
             default -> throw new CustomException(MemberErrorStatus._INVALID_MEMBER_TYPE);
         };
 
-        return members.stream()
+        // 중복 필터링 및 파트 기준 정렬 적용
+        return filterAndSortMembers(members).stream()
                 .map(GetMembersByTypeResponse::from)
+                .collect(Collectors.toList());
+    }
+
+    // 중복 필터링 및 정렬 메서드
+    private List<Member> filterAndSortMembers(List<Member> members) {
+        List<Member> distinctMembers = members.stream()
+                .collect(Collectors.groupingBy(Member::getName, Collectors.toList()))
+                .entrySet()
+                .stream()
+                .flatMap(entry -> {
+                    List<Member> memberList = entry.getValue();
+                    if (entry.getKey().equals("김서연")) {
+                        return memberList.stream(); // 동명이인이므로 포함
+                    } else {
+                        return memberList.stream().limit(1); // 중복 제거
+                    }
+                })
+                .toList();
+
+        System.out.println("총 " + distinctMembers.size() + "명");
+        // 파트 기준으로 정렬
+        return distinctMembers.stream()
+                .sorted(Comparator.comparingInt(member -> {
+                    String part = member.getPart();
+                    return PART_ORDER.contains(part) ? PART_ORDER.indexOf(part) : Integer.MAX_VALUE;
+                }))
                 .collect(Collectors.toList());
     }
 }
