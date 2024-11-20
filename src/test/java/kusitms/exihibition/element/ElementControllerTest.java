@@ -47,7 +47,7 @@ public class ElementControllerTest extends ControllerTestConfig {
         GetElementTestResultResponse response = new GetElementTestResultResponse(
                 "질소",
                 "N2",
-                "https://storage.googleapis.com/kusitms-exhibition-bucket/element/질소.svg",
+                "https://storage.googleapis.com/kusitms-exhibition-bucket/element/N2.svg",
                 "봉지 속 과자를 안전히 지켜주는 질소처럼 팀에서 부드럽게 중재와 조율을 잘 해주는 완충재 같은 존재예요. 그러나 모두를 배려하다 산으로 갈 수 있으니 팀의 목적이 무엇인지 항상 기억해두세요!",
                 "이산화탄소",
                 "아이디어 발상을 잘하는 이산화탄소의 의견들을 잘 수렴해주기 때문에 함께한다면 좋은 시너지를 낼 수 있을거예요!"
@@ -71,7 +71,7 @@ public class ElementControllerTest extends ControllerTestConfig {
                 .andExpect(jsonPath("$.message").value("원소 테스트 결과 조회에 성공했습니다."))
                 .andExpect(jsonPath("$.payload.koreanName").value("질소"))
                 .andExpect(jsonPath("$.payload.englishName").value("N2"))
-                .andExpect(jsonPath("$.payload.imgUrl").value("https://storage.googleapis.com/kusitms-exhibition-bucket/element/질소.svg"))
+                .andExpect(jsonPath("$.payload.imgUrl").value("https://storage.googleapis.com/kusitms-exhibition-bucket/element/N2.svg"))
                 .andExpect(jsonPath("$.payload.description").isNotEmpty())
                 .andExpect(jsonPath("$.payload.fitElementName").value("이산화탄소"))
                 .andExpect(jsonPath("$.payload.fitElementDescription").isNotEmpty())
