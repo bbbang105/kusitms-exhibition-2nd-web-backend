@@ -44,6 +44,9 @@ public class Member extends BaseEntity {
     @Column(name = "behance_url", length = 200)
     private String behanceUrl;
 
+    @Column(name = "site_url", length = 200)
+    private String siteUrl;
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private MemberType type;
