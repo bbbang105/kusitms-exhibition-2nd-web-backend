@@ -37,8 +37,8 @@ public class MemberControllerTest extends ControllerTestConfig {
     public void getMembersByTypeTest() throws Exception {
         // given
         List<GetMembersByTypeResponse> responses = List.of(
-                new GetMembersByTypeResponse("홍길동", "https://img.url", "Planner", "https://instagram.com/example", "https://linkedin.com/example", null, null),
-                new GetMembersByTypeResponse("김철수", "https://img.url", "Designer", null, null, null, "https://behance.net/example")
+                new GetMembersByTypeResponse("홍길동", "https://img.url", "Planner", "https://instagram.com/example", "https://linkedin.com/example", null, null, null),
+                new GetMembersByTypeResponse("김철수", "https://img.url", "Designer", null, null, null, "https://behance.net/example", null)
         );
 
         Mockito.when(memberService.getMembersByType(anyString())).thenReturn(responses);
@@ -78,7 +78,8 @@ public class MemberControllerTest extends ControllerTestConfig {
                                                 fieldWithPath("payload[].instagramUrl").description("Instagram URL").optional(),
                                                 fieldWithPath("payload[].linkedinUrl").description("LinkedIn URL").optional(),
                                                 fieldWithPath("payload[].githubUrl").description("GitHub URL").optional(),
-                                                fieldWithPath("payload[].behanceUrl").description("Behance URL").optional()
+                                                fieldWithPath("payload[].behanceUrl").description("Behance URL").optional(),
+                                                fieldWithPath("payload[].siteUrl").description("외부 접속 URL (후원사 한정)").optional()
                                         )
                                         .responseSchema(Schema.schema("GetMembersByTypeResponse"))
                                         .build()
