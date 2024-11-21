@@ -9,7 +9,8 @@ public record GetMembersByTypeResponse(
         String instagramUrl,
         String linkedinUrl,
         String githubUrl,
-        String behanceUrl
+        String behanceUrl,
+        String siteUrl
 
 ) {
     public static GetMembersByTypeResponse from(Member member) {
@@ -20,7 +21,8 @@ public record GetMembersByTypeResponse(
                 member.getInstagramUrl(),
                 member.getLinkedinUrl(),
                 member.getGithubUrl(),
-                member.getBehanceUrl()
+                member.getBehanceUrl(),
+                member.getSiteUrl()
         );
     }
 }
