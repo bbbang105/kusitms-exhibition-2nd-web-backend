@@ -39,8 +39,8 @@ public class ProductControllerTest extends ControllerTestConfig {
     public void getProductsByTypeTest() throws Exception {
         // given
         List<GetProductByTypeResponse> responses = List.of(
-                new GetProductByTypeResponse("A팀 서비스명", "A팀 한줄 소개", "https://thumbnail.url/a"),
-                new GetProductByTypeResponse("B팀 서비스명", "B팀 한줄 소개", "https://thumbnail.url/b")
+                new GetProductByTypeResponse(1L, "A팀 서비스명", "A팀 한줄 소개", "https://thumbnail.url/a"),
+                new GetProductByTypeResponse(2L, "B팀 서비스명", "B팀 한줄 소개", "https://thumbnail.url/b")
         );
 
         Mockito.when(productService.getProductsByType(anyString())).thenReturn(responses);
@@ -56,10 +56,12 @@ public class ProductControllerTest extends ControllerTestConfig {
                 .andExpect(jsonPath("$.isSuccess").value(true))
                 .andExpect(jsonPath("$.code").value("200"))
                 .andExpect(jsonPath("$.message").value("유형 별 프로덕트 조회에 성공했습니다."))
+                .andExpect(jsonPath("$.payload[0].productId").value(1L))
                 .andExpect(jsonPath("$.payload[0].name").value("A팀 서비스명"))
                 .andExpect(jsonPath("$.payload[0].introduction").value("A팀 한줄 소개"))
                 .andExpect(jsonPath("$.payload[0].thumbnailUrl").value("https://thumbnail.url/a"))
                 .andExpect(jsonPath("$.payload[1].name").value("B팀 서비스명"))
+                .andExpect(jsonPath("$.payload[1].productId").value(2L))
                 .andExpect(jsonPath("$.payload[1].introduction").value("B팀 한줄 소개"))
                 .andExpect(jsonPath("$.payload[1].thumbnailUrl").value("https://thumbnail.url/b"))
                 .andDo(MockMvcRestDocumentationWrapper.document("product/get-products-by-type",
@@ -76,6 +78,7 @@ public class ProductControllerTest extends ControllerTestConfig {
                                                 fieldWithPath("isSuccess").description("성공 여부"),
                                                 fieldWithPath("code").description("응답 코드"),
                                                 fieldWithPath("message").description("응답 메시지"),
+                                                fieldWithPath("payload[].productId").description("프로덕트 ID"),
                                                 fieldWithPath("payload[].name").description("프로덕트 이름"),
                                                 fieldWithPath("payload[].introduction").description("프로덕트 한줄 소개"),
                                                 fieldWithPath("payload[].thumbnailUrl").description("프로덕트 썸네일 URL")
