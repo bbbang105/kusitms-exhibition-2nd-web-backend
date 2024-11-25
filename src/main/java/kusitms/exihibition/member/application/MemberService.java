@@ -45,6 +45,7 @@ public class MemberService {
 
     // 중복 필터링 및 정렬 메서드
     private List<Member> filterAndSortMembers(List<Member> members) {
+        // 중복 제거 로직
         List<Member> distinctMembers = members.stream()
                 .collect(Collectors.groupingBy(Member::getName, Collectors.toList()))
                 .entrySet()
@@ -52,19 +53,26 @@ public class MemberService {
                 .flatMap(entry -> {
                     List<Member> memberList = entry.getValue();
                     if (entry.getKey().equals("김서연")) {
-                        return memberList.stream(); // 동명이인이므로 포함
+                        return memberList.stream(); // 동명이인이므로 모두 포함
                     } else {
                         return memberList.stream().limit(1); // 중복 제거
                     }
                 })
                 .toList();
 
-        // 파트 기준으로 정렬
-        return distinctMembers.stream()
+        // 한글 이름 정렬
+        List<Member> sortedByName = distinctMembers.stream()
+                .sorted(Comparator.comparing(Member::getName, Comparator.naturalOrder()))
+                .toList();
+
+        System.out.print(sortedByName.size());
+
+        // 파트 순서 정렬
+        return sortedByName.stream()
                 .sorted(Comparator.comparingInt(member -> {
                     String part = member.getPart();
                     return PART_ORDER.contains(part) ? PART_ORDER.indexOf(part) : Integer.MAX_VALUE;
                 }))
-                .collect(Collectors.toList());
+                .toList();
     }
 }
