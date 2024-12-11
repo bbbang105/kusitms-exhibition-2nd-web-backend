@@ -32,7 +32,8 @@ public class SecurityConfig {
             "https://www.chemical-synergy-with-kusitms.com",
             "https://kusitms-element-test.vercel.app/",
             "https://www.kusitms-element-test.vercel.app/",
-            "https://ttttttttt-pearl.vercel.app"
+            "https://ttttttttt-pearl.vercel.app",
+            "https://ket1.vercel.app"
     };
 
     @Bean
