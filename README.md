@@ -1,5 +1,12 @@
 # KUSITMS 제 2회 전시회 웹사이트 Backend 🚀
 
+## 🎉 Achivement
+
+<img width="1687" alt="image" src="https://github.com/user-attachments/assets/1e50786a-672c-49b5-8682-58ed0536c620" />
+
+- 1100+ 고유 사용자 유입
+- [✍🏻 회고록](https://velog.io/@hsh111366/큐시즘-제2회-전시회-회고록)
+
 ## 🌐 System Architecture
 
 <img width="727" alt="image" src="https://github.com/user-attachments/assets/53cc8cd7-c4bc-4aab-9831-9aa778cb1836">
@@ -8,8 +15,9 @@
 
 <img width="1210" alt="전시_ERD" src="https://github.com/user-attachments/assets/31ea4828-e296-431f-b599-0c83cdb6b1a3">
 
-
 ## 📄 API Documentation
+
+[REST Docs + Swagger](https://kusitms-exhibition.store/swagger-ui/index.html#/)
 
 ## 🔒 Rules
 
@@ -76,18 +84,21 @@
 
 ```json
 {
-    "isSuccess": true,
-    "code": "200",
-    "message": "가이드 챗봇 답변을 가져오는 데 성공했습니다.",
-    "payload": {
-        "answers": [
-            "야구 경기의 시간은 평균 3시간입니다.",
-            "경기 시작 시간은 평일에는 오후 6시 30분, 주말이나 공휴일에는 상황에 따라 오후 2시와 오후 5시 시작으로 나뉘어져요!",
-            "야구에는 쉬는 시간과 같이 느껴지는 ‘클리닝 타임’이 있어요! 5번의 공격과 5번의 수비가 끝난 ‘5회 말’에 짧은 휴식 시간을 갖습니다.",
-            "선수들도 몸을 풀고, 경기장도 재정비 시간을 가집니다! 이 시간을 활용하여 먹거리를 사오거나, 화장실을 다녀오는 것을 추천 드려요!"
-        ],
-        "imgUrl": null
-    }
+  "isSuccess": true,
+  "code": "200",
+  "message": "프로덕트 상세 조회에 성공했습니다.",
+  "payload": {
+    "name": "A팀 서비스명",
+    "category": "A팀 카테고리",
+    "introduction": "A팀 한줄 소개",
+    "description": "A팀 상세 설명",
+    "thumbnailUrl": "https://thumbnail.url/a",
+    "instagramUrl": "https://instagram.url/a",
+    "serviceUrl": "https://service.url/a",
+    "target": "A팀 타겟",
+    "problem": "A팀 문제",
+    "solution": "A팀 해결책"
+  }
 }
 ```
 
