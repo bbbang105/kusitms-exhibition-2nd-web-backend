@@ -2,9 +2,9 @@
 
 ## 🎉 Achivement
 
-<img width="1687" alt="image" src="https://github.com/user-attachments/assets/1e50786a-672c-49b5-8682-58ed0536c620" />
+<img width="1079" alt="image" src="https://github.com/user-attachments/assets/9f3b78d8-f973-4201-9f37-fbe878e82fb6" />
 
-- 1100+ 고유 사용자 유입
+- 1,800명 이상의 고유 사용자 유입
 - [✍🏻 회고록](https://velog.io/@hsh111366/큐시즘-제2회-전시회-회고록)
 
 ## 🌐 System Architecture
@@ -21,7 +21,7 @@
 
 ## 🔒 Rules
 
-### Branch
+### 🔀 Branch
 
 - 생성한 이슈에 따라서 브랜치 생성 `Ex) feature/#4/login`
 - `main branch` : 개발 최종 완료 시 merge
@@ -29,7 +29,7 @@
 - `feature branch` : 각 새로운 기능
 - `hotfix branch` : 배포 이후 긴급 수정
 
-### **Commit Message**
+### 💬 Commit Message
 
 - 이슈 번호 붙여서 커밋 `Ex) #4 [feat] : 로그인 기능을 추가한다`
 - Body는 추가 설명 필요하면 사용
@@ -45,7 +45,7 @@
 | **rename** | 패키지 혹은 폴더명, 클래스명 수정 (단독으로 시행하였을 시) |
 | **remove** | 패키지 혹은 폴더, 클래스를 삭제하였을 때 (단독으로 시행하였을 시) |
 
-### Naming
+### 📛 Naming
 
 - **패키지명** : 한 단어 소문자 사용 `Ex) service`
 - **클래스명** : 파스칼 케이스 사용 `Ex) JwtUtil`
@@ -54,10 +54,10 @@
 - **상수명** : 대문자 사용 `Ex) EXPIRATION_TIME`
 - **컬럼명** : 스네이크 케이스 사용 `Ex) user_id`
 
-### Package
+### 📦 Package
 
 - global
-- user
+- member
     - application
     - domain
         - entity
@@ -78,9 +78,13 @@
         
         …
         
-- board
+- team
 
-### API Response
+### 📑 API Documentation
+
+[REST Docs + Swagger API 문서](https://kusitms-exhibition-test.store/swagger-ui/index.html#/)
+
+### 📩 API Response
 
 ```json
 {
