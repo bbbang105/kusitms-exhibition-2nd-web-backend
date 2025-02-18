@@ -1,10 +1,13 @@
-# KUSITMS 제 2회 전시회 웹사이트 Backend 🚀
+# 💥 KUSITMS 제2회 전시회 웹사이트 Backend 💥
+
+<img width="1691" alt="image" src="https://github.com/user-attachments/assets/8c4cfd36-29d2-441b-ac89-51a07223186c" />
 
 ## 🎉 Achivement
 
-<img width="1079" alt="image" src="https://github.com/user-attachments/assets/9f3b78d8-f973-4201-9f37-fbe878e82fb6" />
+<img width="978" alt="image" src="https://github.com/user-attachments/assets/c39e92b4-1aed-495b-9edc-c1e1682ae5b2" />
 
-- 1,800명 이상의 고유 사용자 유입
+- 1,800명 이상의 고유 사용자가 유입되었습니다.
+- [웹사이트 바로가기](https://www.chemical-synergy-with-kusitms.com/)
 - [✍🏻 회고록](https://velog.io/@hsh111366/큐시즘-제2회-전시회-회고록)
 
 ## 🌐 System Architecture
